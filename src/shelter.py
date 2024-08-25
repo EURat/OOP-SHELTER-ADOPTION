@@ -3,9 +3,35 @@ class Shelter:
         self.pets = []
 
     def add_pet(self, pet):
-        # TODO: Implement method to add a pet to the shelter
+        # Implement method to add a pet to the shelter
+        if isinstance(pet, Pet):
+            self.pets.append(pet)
+            print(f"{pet.name} has been added to the shelter.")
+        else:
+            print("Only Pet instances can be added to the shelter.")
 
     def list_pets(self):
-        # TODO: Implement method to list all pets in the shelter
+        # Implement method to list all pets in the shelter
+        if self.pets:
+            print("Pets in the shelter:")
+            for pet in self.pets:
+                print(pet)
+        else:
+            print("The shelter is empty.")
 
-    # TODO: Implement other necessary methods (search, adopt, etc.)
+    def search_pet(self, name):
+        # Implement method to search for a pet by name
+        for pet in self.pets:
+            if pet.name.lower() == name.lower():
+                return pet
+        return None
+
+    def adopt_pet(self, name):
+        # Implement method to adopt a pet by name
+        pet = self.search_pet(name)
+        if pet:
+            self.pets.remove(pet)
+            print(f"{pet.name} has been adopted.")
+            return pet
+        else:
+            print(f"No pet found with the name {name}.")

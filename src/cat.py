@@ -2,7 +2,13 @@ from pet import Pet
 
 class Cat(Pet):
     def __init__(self, name, age, breed):
-        # TODO: Initialize the dog
-        pass
+        # Initialize the cat
+        super().__init__(name, age)
+        self.breed = breed
 
-    # TODO: Implement dog-specific methods
+    # Implement cat-specific methods
+    def meow(self):
+        print("Meow!")
+
+    def scratch(self):
+        print("Scratching...")
